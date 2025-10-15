@@ -2,142 +2,352 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="./css/stylessomos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
-  <title>instituto equlibrio cariri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/stylessomos.css">
+    <title>Instituto Equilíbrio Cariri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        /* ======== TOPO ======== */
+        .top {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(16, 201, 93, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top img {
+            height: 90px;
+            border-radius: 50%;
+            box-shadow: 2px 2px 6px rgba(16, 201, 93, 0.5);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgb(42, 148, 21);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: rgb(16, 201, 93);
+        }
+
+        .fa-copyright {
+            font-size: 20px;
+        }
+
+        .direito {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: green;
+        }
+
+        .direito h1 {
+            font-size: 20px;
+        }
+
+        /* ======== HAMBURGUER MENU ======== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: rgb(42, 148, 21);
+            margin: 4px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        /* ======== CONTEÚDO ======== */
+        .img-principal {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+        }
+
+        #butao-agenda {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn-agendar {
+            background: rgb(16, 201, 93);
+            color: #fff;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-agendar:hover {
+            background: rgb(106, 242, 163);
+        }
+
+        /* ======== CAIXA USER ======== */
+        #caixa-user {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 1350px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+        }
+
+        #missao-atn {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 1350px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+        }
+
+        #missao-atn h1 {
+            color: rgb(42, 148, 21);
+        }
+
+        .usuario-icon {
+            width: 220px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 2px 4px 6px rgba(16, 201, 93, 0.5);
+        }
+
+        #caixa-user h1 {
+            color: rgb(42, 148, 21);
+            margin-bottom: 15px;
+        }
+
+        #caixa-user p, #missao-atn p {
+            text-align: justify;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* ======== RODAPÉ ======== */
+        #roda-pe {
+            background: #fff;
+            box-shadow: 0px -4px 8px rgba(16, 201, 93, 0.5);
+            padding: 30px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #ico {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: green;
+        }
+
+        #ico img {
+            width: 35px;
+            transition: transform 0.2s;
+        }
+
+        #ico img:hover {
+            transform: scale(1.1);
+        }
+
+        /* ======== RESPONSIVIDADE ======== */
+        @media (max-width: 1024px) {
+            .top {
+                padding: 10px 20px;
+            }
+
+            #caixa-user, #missao-atn {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .usuario-icon {
+                width: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100px;
+                right: 20px;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            #ico {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-agendar {
+                width: 90%;
+                font-size: 0.9rem;
+            }
+
+            .usuario-icon {
+                width: 150px;
+            }
+
+            #caixa-user p, #missao-atn p {
+                font-size: 1rem;
+            }
+
+            #ico img {
+                width: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="container">
-    <div class="top">
-        <img src="/assets/logo-ofocial.jpg" alt="">
+        <div class="top">
+            <!-- CORREÇÃO: caminho da imagem -->
+            <img src="assets/logo-ofocial.jpg" alt="Logo Instituto Equilíbrio Cariri">
 
-    <div class="navbar">
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
+            <div class="navbar">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
 
-  <ul class="nav-links">
-    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/">Home</a></li>
-    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/public/quemSomos.html">Sobre</a></li>
-    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/public/servicos.html">Serviços</a></li>
-    <!--<li><a href="#">Contato</a></li>-->
-  </ul>
-</div>
-    <!--<div>
-        <ul>
-            <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/InstitutoEquilibrioCariri.html'">Home</li>
-              <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/quemSomos.html'">Quem somos</li>
-                 <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/servicos.html'">Serviços</li>
-        </ul>
-              
-            </ul>
-
-            
-    </div>-->
-</div>
+                <ul class="nav-links">
+                    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/">Home</a></li>
+                    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/public/quemSomos.html">Sobre</a></li>
+                    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/public/servicos.html">Serviços</a></li>
+                </ul>
+            </div>
+        </div>
 
         <div id="principal">
-        <img src="/assets/logo-quem-somos.png" class="img-principal">
-        
-
-    </div>
-
-
-    
-   <!-- <div id="informativo">
-       <img  class="banner"  src="../assets/banner-med-teste.jpg" alt="">
-        <img  class="icon-avancar" src="../assets/avançar.png" alt="">
-    </div>
-
-
-     <div id="informativo2">
-        <img  class="icon-voltar" src="../assets/voltar.png" alt="">
-        <img  class="icon-avancar" src="../assets/avançar.png" alt="">
-    </div>-->
-
-     <div id="butao-agenda">   
-                <button type="button" onclick="window.location.href='https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0'" class="btn-agendar">Agende ja sua Consulta</button>
-            </div>
-    <div id="caixa-user">
-        
-   
-        <h1>Sobre</h1> <h1>Nós:</h1>
-        <p>
-            Somos uma instituição especializada no cuidado de pessoas idosas, 
-            com foco na promoção da saúde, prevenção de doenças e estímulo à 
-            utonomia. Nossa missão é oferecer um atendimento humanizado, seguro
-            e de qualidade, valorizando cada história de vida e garantindo o
-            bem-estar físico, emocional e social. Atuamos com uma equipe 
-            multidisciplinar comprometida em proporcionar dignidade e 
-            qualidade de vida nesta fase tão especial.Cuidar é nossa essência.
-            Estamos ao lado de cada idoso com carinho, respeito e dedicação,
-            oferecendo atenção individualizada para que cada momento seja 
-            vivido com mais alegria, conforto e dignidade. Acreditamos que 
-            envelhecer é uma conquista, e por isso trabalhamos para transformar
-            essa fase da vida em um tempo de bem-estar, acolhimento e afeto.
-            </p>
-    </div>
-
-
-
-    <div id="missao-atn">
-        <img src="/assets/medico.png" alt="">
-         <h1>Missão:</h1>
-         <p>
-           Nossa missão é oferecer cuidado integral e humanizado
-            às pessoas idosas, promovendo saúde, bem-estar e 
-            qualidade de vida em cada etapa do envelhecimento. 
-            Trabalhamos para preservar a autonomia, prevenir 
-            complicações e reabilitar funções, sempre respeitando 
-            a individualidade e a história de cada pessoa. 
-            Acreditamos que envelhecer é uma conquista e, por isso,
-            nos dedicamos a proporcionar um atendimento especializado,
-            seguro e acolhedor, fortalecendo também o vínculo com as 
-            famílias e cuidadores. Atuamos com ética, carinho e 
-            profissionalismo, para que cada idoso viva essa fase da vida
-            com dignidade e plenitude.
-         </p>
-
-    </div>
-
-
-
-
-    
-<div id="roda-pe">
-  
-    <div class="direito">
-<p>Made by <h1>Instituto Equilibrium Cariri</h1> · All rights reserved.</p>
- <i class="fa-regular fa-copyright"></i>
-       </div>  
-          
-
-
-    <div id="ico">
-        <p2>Visite Nossas Redes:</p2>
-        <a href="https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0"><img src="/assets/zap.png" class="zap"></a>
-     <a href="https://www.instagram.com/instituto_equilibriumcariri/?igsh=MWtrYTk3Y2FudDFtag%3D%3D#"><img src="/assets/instagram.png" class="instagram"></a>
+            <!-- CORREÇÃO: imagem existente -->
+            <img src="assets/logo-principal.jpg" class="img-principal" alt="Banner Principal">
         </div>
-    
 
-    
-       
-    
-     </div>
+        <div id="butao-agenda">   
+            <button type="button" onclick="window.location.href='https://api.whatsapp.com/send/?phone=5588996560706'" class="btn-agendar">Agende já sua Consulta</button>
+        </div>
 
-  </div>
-   
-    
-    
-   
+        <div id="caixa-user">
+            <div>
+                <h1>Nosso Serviço:</h1>
+                <p>
+                    Instituto Equilibrium Cariri é especializado no cuidado de pessoas idosas, 
+                    focando na prevenção, diagnóstico e tratamento de doenças e 
+                    condições comuns na terceira idade. Nós cuidamos no tratamento de doenças crônicas
+                    como pressão alta e diabetes, problemas cognitivos como demência, 
+                    e aspectos do envelhecimento como perda de memória, mobilidade e 
+                    qualidade de vida, promovendo um envelhecimento saudável e bem-estar.
+                </p>
+            </div>
+            <!-- CORREÇÃO: imagem do médico -->
+            <img src="assets/medico.png" class="usuario-icon" alt="Nosso Serviço">
+        </div>
+
+        <div id="missao-atn">
+            <!-- CORREÇÃO: imagem alternativa -->
+            <img src="assets/logo-principal.jpg" class="usuario-icon" alt="Terapias Geriátricas">
+            <div>
+                <h1>Terapias Geriátricas:</h1>
+                <p>
+                    No Instituto Equilibrium Cariri, temos como foco terapias direcionadas à
+                    população idosa, com o objetivo de melhorar a qualidade de vida, 
+                    a autonomia e o bem-estar físico e mental. Inclui a Fisioterapia 
+                    Geriátrica para manter ou recuperar a função motora e o equilíbrio,
+                    a Psicoterapia Geriátrica para lidar com desafios emocionais e cognitivos, 
+                    e a Terapia Ocupacional que foca nas atividades do dia a dia, entre outras 
+                    especialidades que visam um envelhecimento saudável e ativo.
+                </p>
+            </div>
+        </div>
+
+        <div id="roda-pe">
+            <div class="direito">
+                <p>Made by <h1>Instituto Equilibrium Cariri</h1> · All rights reserved.</p>
+                <i class="fa-regular fa-copyright"></i>
+            </div>
+
+            <div id="ico">
+                <p>Visite Nossas Redes:</p>
+                <a href="https://api.whatsapp.com/send/?phone=5588996560706">
+                    <img src="assets/zap.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/instituto_equilibriumcariri/">
+                    <img src="assets/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </div>
+
+ 
 </body>
 </html>
-
 <script>
 function fixZoom() {
   let zoom = window.devicePixelRatio;
