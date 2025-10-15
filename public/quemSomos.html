@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../css/stylessomos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <title>instituto equlibrio cariri</title>
+</head>
+<body>
+    <div id="container">
+    <div class="top">
+        <img src="../assets/logo-ofocial.jpg" alt="">
+
+    <div class="navbar">
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="nav-links">
+    <li><a href="http://127.0.0.1:5500/public/index.html">Home</a></li>
+    <li><a href="http://127.0.0.1:5500/public/quemSomos.html">Sobre</a></li>
+    <li><a href="http://127.0.0.1:5500/public/servicos.html">Serviços</a></li>
+    <!--<li><a href="#">Contato</a></li>-->
+  </ul>
+</div>
+    <!--<div>
+        <ul>
+            <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/InstitutoEquilibrioCariri.html'">Home</li>
+              <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/quemSomos.html'">Quem somos</li>
+                 <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/servicos.html'">Serviços</li>
+        </ul>
+              
+            </ul>
+
+            
+    </div>-->
+</div>
+
+        <div id="principal">
+        <img src="../assets/logo-quem-somos.png" class="img-principal">
+        
+
+    </div>
+
+
+    
+   <!-- <div id="informativo">
+       <img  class="banner"  src="../assets/banner-med-teste.jpg" alt="">
+        <img  class="icon-avancar" src="../assets/avançar.png" alt="">
+    </div>
+
+
+     <div id="informativo2">
+        <img  class="icon-voltar" src="../assets/voltar.png" alt="">
+        <img  class="icon-avancar" src="../assets/avançar.png" alt="">
+    </div>-->
+
+     <div id="butao-agenda">   
+                <button type="button" onclick="window.location.href='https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0'" class="btn-agendar">Agende ja sua Consulta</button>
+            </div>
+    <div id="caixa-user">
+        
+   
+        <h1>Sobre</h1> <h1>Nós:</h1>
+        <p>
+            Somos uma instituição especializada no cuidado de pessoas idosas, 
+            com foco na promoção da saúde, prevenção de doenças e estímulo à 
+            utonomia. Nossa missão é oferecer um atendimento humanizado, seguro
+            e de qualidade, valorizando cada história de vida e garantindo o
+            bem-estar físico, emocional e social. Atuamos com uma equipe 
+            multidisciplinar comprometida em proporcionar dignidade e 
+            qualidade de vida nesta fase tão especial.Cuidar é nossa essência.
+            Estamos ao lado de cada idoso com carinho, respeito e dedicação,
+            oferecendo atenção individualizada para que cada momento seja 
+            vivido com mais alegria, conforto e dignidade. Acreditamos que 
+            envelhecer é uma conquista, e por isso trabalhamos para transformar
+            essa fase da vida em um tempo de bem-estar, acolhimento e afeto.
+            </p>
+    </div>
+
+
+
+    <div id="missao-atn">
+        <img src="../assets/medico.png" alt="">
+         <h1>Missão:</h1>
+         <p>
+           Nossa missão é oferecer cuidado integral e humanizado
+            às pessoas idosas, promovendo saúde, bem-estar e 
+            qualidade de vida em cada etapa do envelhecimento. 
+            Trabalhamos para preservar a autonomia, prevenir 
+            complicações e reabilitar funções, sempre respeitando 
+            a individualidade e a história de cada pessoa. 
+            Acreditamos que envelhecer é uma conquista e, por isso,
+            nos dedicamos a proporcionar um atendimento especializado,
+            seguro e acolhedor, fortalecendo também o vínculo com as 
+            famílias e cuidadores. Atuamos com ética, carinho e 
+            profissionalismo, para que cada idoso viva essa fase da vida
+            com dignidade e plenitude.
+         </p>
+
+    </div>
+
+
+
+
+    
+<div id="roda-pe">
+  
+    <div class="direito">
+<p>Made by <h1>Instituto Equilibrium Cariri</h1> · All rights reserved.</p>
+ <i class="fa-regular fa-copyright"></i>
+       </div>  
+          
+
+
+    <div id="ico">
+        <p2>Visite Nossas Redes:</p2>
+        <a href="https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0"><img src="../assets/zap.png" class="zap"></a>
+     <a href="https://www.instagram.com/instituto_equilibriumcariri/?igsh=MWtrYTk3Y2FudDFtag%3D%3D#"><img src="../assets/instagram.png" class="instagram"></a>
+        </div>
+    
+
+    
+       
+    
+     </div>
+
+  </div>
+   
+    
+    
+   
+</body>
+</html>
+
+<script>
+function fixZoom() {
+  let zoom = window.devicePixelRatio;
+  document.querySelector('.container').style.transform = `scale(${1 / zoom})`;
+}
+
+window.addEventListener('resize', fixZoom);
+fixZoom();
+
+</script>

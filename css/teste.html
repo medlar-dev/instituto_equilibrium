@@ -1,0 +1,327 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        @include('flash.flash-message')
+            <div class="card">
+                <div class="card-header">Relatório cidades x cargos</div>
+                <div class="card-body">
+                   <form action="{{route('gerar_estatistica_cidade_cargo')}}" method="POST">
+                   @csrf
+                   <div class="row mt-2 estado_cidade">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h5>Estado e cidade(s)</h5>
+                                <label for="">Estado*</label>
+                                <select required placeholder="Selecione um estado..."  name="idEstado" value="{{$idEstado}}" class="chosen-select form-control estado_reserva uf estado" id="estado_reserva">
+                                    <option value="" disabled selected>Selecione um estado</option>
+                                    @foreach($estados as $estado)                                       
+                                        <option value="{{$estado->id}}" {{ ($idEstado==$estado->id ? "selected":"") }}>{{$estado->nome}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                   </div> 
+                   <div class="row mt-2">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="">Cidade*</label>
+                                    <select id="lista-cidades" required data-placeholder="Selecione uma cidade..." multiple name="idCidade[]"  class="chosen-select form-control estatistica_cidade cidades" >
+                                        @if(count($cidades)>0)
+                                            @foreach($cidades as $cidade)
+                                                <option class="options_cidades" value="{{$cidade->id}}" {{in_array($cidade->id,$idCidade)?'selected':''}}>{{$cidade->nome}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    <button type="button" class="btn btn-success chosen-toggle select">Selecionar todas as cidades</button>
+                                    <button type="button" class=" btn btn-danger chosen-toggle deselect">Remover todas as cidades</button>
+                                </div>
+                    </div>
+                   <div class="row mt-2 cargo_estatistica">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h5>Cargo(s)</h5>
+                            <label for="">Selecione um ou vários cargos</label>
+                            <select data-placeholder="Selecione um ou mais cargos" name="idCargo[]" multiple class="form-control chosen-select" required>
+                                @foreach($cargos as $cargo)
+                                    <option value="{{$cargo->nome}}" {{in_array($cargo->nome,$cargos_selecionados)?'selected':''}}>{{$cargo->nome}}</option>
+                                @endforeach
+                            </select>
+                            <button type="button" class="btn btn-success chosen-toggle select">Selecionar todas as cidades</button>
+                            <button type="button" class=" btn btn-danger chosen-toggle deselect">Remover todas as cidades</button>
+                        </div>
+                   </div>
+                   <div class="row mt-2 cargo_estatistica">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h5>Especialização</h5>
+                            <label for="">Especialista*</label>
+                            <select name="especialista" class="form-control" required>
+                                    <option value="" disabled {{$especialista==''?'selected':''}}>Selecione uma opção</option>
+                                    <option value="1" {{$especialista=='1'?'selected':''}}>Sim</option>
+                                    <option value="0" {{$especialista=='0'?'selected':''}}>Indiferente</option>
+                                </option>
+                            </select>
+                        </div>
+                   </div>
+                    <div class="row mt-3">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h5>Intervalo de idade</h5>
+                            </div>
+                    </div>
+                   <div class="row mt-2 cargo_estatistica">
+                       
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <label for="">Idade de*</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" name="idade_de" placeholder="Idade inicial" value="{{$idade_de}}" aria-label="Idade inicial" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">anos</span>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <label for="">Idade até*</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" name="idade_ate" placeholder="Idade final" value="{{$idade_ate}}" aria-label="Idade inicial" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">anos</span>
+                                </div>
+                           </div>
+                        </div>
+                   </div>
+                   <div class="row mt-2">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h5>Cidade com candidatos</h5>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <label for="">Deseja exibir todos as cidades?</label>
+                                <select name="exibir_cidade" class="form-control" required>
+                                        <option value="" disabled {{$exibir_cidade==''?'selected':''}}>Selecione uma opção</option>
+                                        <option value="0" {{$exibir_cidade=='0'?'selected':''}}>Apenas com candidatos</option>
+                                        <option value="1" {{$exibir_cidade=='1'?'selected':''}}>Apenas sem candidatos</option>
+                                        <option value="2" {{$exibir_cidade=='2'?'selected':''}}>Exibir com e sem candidatos</option>
+                                    </option>
+                                </select>
+                            </div>
+                    </div>
+
+                    <div class="row mt-2">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h5>Experiência</h5>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <label for="">Deseja exibir candidatos com e/ou sem experiência?</label>
+                                <select name="experiencia" class="form-control" required>
+                                        <option value="" disabled {{$experiencia==''?'selected':''}}>Selecione uma opção</option>
+                                        <option value="1" {{$experiencia=='1'?'selected':''}}>Apenas com experiência</option>
+                                        <option value="0" {{$experiencia=='0'?'selected':''}}>Com e sem experiência</option>                                        
+                                    </option>
+                                </select>
+                            </div>
+                    </div>
+
+                    <div class="row mt-2">
+                       <div class="col-md-12 col-sm-12 col-xs-12">
+                         <h5>Transporte</h5>
+                       </div>
+                       <div class="col-md-12 col-sm-12 col-xs-12">
+                          <label for="">Deseja exibir candidatos com transporte próprio?</label>
+                          <select name="transporte" class="form-control" required>
+                            <option value="" disabled {{$transporte==''?'selected':''}}>Selecione uma opção</option>
+                            <option value="Carro" {{$transporte=='Carro'?'selected':''}}>Apenas Carro</option>
+                            <option value="Moto" {{$transporte=='Moto'?'selected':''}}>Apenas Moto</option>
+                            <option value="Carro e Moto" {{$transporte=='Carro e Moto'?'selected':''}}>Carro e Moto</option>
+                            <option value="Indiferente" {{$transporte=='Indiferente'?'selected':''}}>Indiferente</option>
+                          </option>
+                         </select>
+                      </div>
+                    </div>
+
+                    <div class="row mt-3">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h5>Intervalo data de cadastro</h5>
+                            </div>
+                    </div>
+                   <div class="row mt-2 cargo_estatistica">
+                       
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <label for="">Cadastrado de*</label>
+                            <div class="input-group mb-3">
+                                <input required type="date" class="form-control" name="cadastrado_de" value="{{$cadastrado_de}}" aria-label="Idade inicial" aria-describedby="basic-addon2">
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <label for="">Cadastrado até*</label>
+                            <div class="input-group mb-3">
+                                <input required type="date" class="form-control" name="cadastrado_ate"  value="{{$cadastrado_ate}}" aria-label="Idade inicial" aria-describedby="basic-addon2">
+                           </div>
+                        </div>
+                   </div>
+                   <hr>
+                   <div class="row mt-1 mb-3">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h5>Resultado</h5>
+                            </div>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <label for="">Como deseja gerar o resultado?</label>
+                                <select name="tipoVisualizacao" class="form-control">
+                                    <option value="tela" selected>Visualizar na tela</option>
+                                    <option value="pdf">Baixar PDF</option>
+                                    <option value="xml">Baixar XML (Para Excel - deve-se importar o arquivo dentro do Excel)</option>
+                                    <option value="json">Baixar JSON</option>
+                                </select>
+                            </div>
+                        </div>
+                   <div class="row mt-4">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn btn-success width100 no_load"><i class="fa fa-check"></i> Gerar relatório</button>
+                        </div>
+                   </div>
+                   </form>     
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-header">Candidatos selecionados 
+                    <a id="target" style="display: none"></a>    
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12 col-xs-12 mt-2">
+                            <button class="btn btn-danger limpar_lista_candidato btnFull"><i class="fa fa-trash"></i> Limpar lista</button> 
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 mt-2">
+                            <button class="btn btn-primary no_load download_pdf_candidato_selecionado btnFull"><i class="fa fa-download"></i> Download lista selecionados</button> 
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 mt-2">
+                            <button class="btn btn-success no_load abrir_todos_curriculos btnFull"><i class="fa fa-download"></i> Download todos os currículos</button>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 mt-2">
+                            <button class="btn btn-warning midal_enviar_lista_email btnFull"><i class="fa fa-send"></i> Enviar lista por e-mail</button> 
+                        </div>
+                    </div>                  
+                   
+                    <div class="card-body">
+                        <div class="table-responsive">
+                        <table class="table table-striped" id="searchElement">
+                        <thead>
+                            <tr>
+                            <th scope="col">Mat</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Tel 1</th>
+                            <th scope="col">Tel 2</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Especialista</th>
+                            <th scope="col">Perfil</th>
+                            <th scope="col">Currículo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista_candidato_selecionado">
+                            <tr>
+                                <td colspan="10" class="center">Nenhum registro selecionado</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+          </div>
+        </div>
+            @if(count($resultados)>0)
+            <div class="card mt-3">
+                <div class="card-header">Resultados</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                        <table class="table table-striped" id="searchElement">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Cargo</th>                            
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Ver</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @php $count=1; @endphp
+                        @forelse($resultados as $resultado)
+                        <tr>
+                            <th scope="row">{{$count++}}</th>
+                            <td>{{$resultado['cidade']}}</td>
+                            <td>{{$resultado['cargo']}}</td>     
+                            <td>{{$resultado['quantidade']}}</td>
+                            <td data-toggle="collapse" data-target="#cidade{{$count}}" data-parent="#searchElement"  class="pointer"><i class="fa fa-eye"></i></td>
+                        </tr>
+                        <tr id="cidade{{$count}}" class="collapse div-notas" data-parent="#searchElement">
+                                <td colspan="12" class="hiddenRow">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <button class="btn btn-primary btnFull selecionar_todos mt-2" data-key="{{$count}}"><i class="fa fa-users"></i> Adicionar todos(as) os(as) {{$resultado['cargo']}} na lista</button>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <button class="btn btn-danger btnFull remover_todos mt-2" data-key="{{$count}}"><i class="fa fa-trash"></i> Remover todos(as) os(as) {{$resultado['cargo']}} da lista</button>
+                                    </div>
+                                </div>
+                                @forelse($resultado['candidatos'] as $candidato)
+                              
+                              <p>CPF:{{$candidato->cpf}} / Nome: {{mb_convert_case($candidato->nome, MB_CASE_TITLE, "UTF-8")}} / Cidade: {{mb_convert_case($candidato->cidade, MB_CASE_TITLE, "UTF-8")}} / Especialista: {{$candidato->especializacao=='1'?'Sim':'Não'}} <a href="{{route('candidato.show',$candidato->id)}}" target="_blank">(Perfil)</a><a target="_blank" href="{{domain().$candidato->path_curriculo}}" class="btn btn-link">(Currículo)</a><button acao="adicionar" data-key="{{$count}}" class="btn btn-link adicionar_candidato_lista registro_{{$count}}" data-cargo="{{$resultado['cargo']}}" data-telefoneum="{{$candidato->telefone1}}" data-telefonedois="{{$candidato->telefone2}}" data-email="{{$candidato->usuario->email}}" data-perfil="{{route('candidato.show',$candidato->id)}}" data-curriculo="{{domain().$candidato->path_curriculo}}" data-matricula="{{$candidato->id}}" data-cpf="{{$candidato->cpf}}" data-nome="{{mb_convert_case($candidato->nome, MB_CASE_TITLE, "UTF-8")}}" data-cidade="{{mb_convert_case($candidato->cidade, MB_CASE_TITLE, 'UTF-8')}}" data-especialista="{{$candidato->especializacao=='1'?'Sim':'Não'}}">(Selecionar)</button></p>
+                      @empty
+                          <p>Nenhum candidato encontrado</p>
+                      @endif                     
+                            </td>
+
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="3" class="center">Nenhum registro encontrado</td>
+                        </tr>
+                        @endif
+                        
+                            <tr>
+                        </tbody>
+                        </table>
+                </div>
+            @endif
+        </div>
+    </div>
+</div>
+@endsection
+
+
+<!--Iniico modal enviar lista candidatos selecionados por e-mail-->
+<div class="modal fade" id="modalEnviarListaCandidatoEmail" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title modal-title-cargos" id="exampleModalLabel">Enviar lista por e-mail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+            <div class="row lista_emails">
+                <div class="col-md-12 col-sm-12 col-xs-12 row_email">
+                    <label for="" class="obrigatorio">E-mail destinatário*</label>
+                    <input type="email" name="lista_email[]" class="form-control lista_email" placeholder="Informe um e-mail de destino" required>
+                </div>
+            </div>
+            <div class="lista_adicional"> </div>
+            <button class="btn btn-success adicionar_email_lista"><i class="fa fa-plus"></i> Incluir + destinatários</button>
+            <div class="row mt-2">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label for="" class="obrigatorio">Título e-mail*</label>
+                    <input type="text" name="titulo" value="Lista de candidatos..." class="form-control titulo_email" placeholder="Informe um título para o e-mail" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label for="" class="obrigatorio">Mensagem*</label>
+                    <textarea  name="mensagem" class="form-control cleditor mensagem_email" placeholder="Informe a mensagem" cols="30" rows="10" required>Segue a lista de candidatos para...</textarea>
+                </div>
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+          <button type="button" class="btn btn-success send_mail_lista_candidato"><i class="fa fa-send"></i> Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Fim modal enviar lista candidatos selecionados por e-mail-->

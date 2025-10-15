@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styleagenda.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>instituto equlibrio cariri</title>
+</head>
+<body>
+ 
+     <div id="container">
+    <div class="top">
+        <img src="../assets/logo-ofocial.jpg" alt="">
+
+
+ <div class="navbar">
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="nav-links">
+    <li><a href="http://127.0.0.1:5500/public/InstitutoEquilibrioCariri.html">Home</a></li>
+    <li><a href="#">Sobre</a></li>
+    <li><a href="#">Serviços</a></li>
+    <li><a href="#">Contato</a></li>
+  </ul>
+</div>
+
+
+
+
+
+
+</div>
+
+     <div id="principal">
+        <img src="../assets/logo-principal.jpg" class="img-principal">
+</div>
+
+
+
+
+
+     <h1>Agendar Consulta</h1>
+  <form id="formAgendamento">
+    <div id="interna">
+    <input type="text" id="nome" placeholder="Seu Nome" required>
+    <input type="date" id="data" required>
+    <input type="time" id="hora" required>
+    <select id="especialidade" required>
+      <option value="">Selecione a especialidade</option>
+      <option value="Clínico Geral">Clínico Geral</option>
+      <option value="Cardiologia">Cardiologia</option>
+      <option value="Dermatologia">Dermatologia</option>
+    </select>
+    <button type="submit">Agendar</button>
+    </div>
+  </form>
+
+
+
+  
+
+  
+
+     <div id="roda-pe">
+        <i class="fa-regular fa-copyright"></i>
+        <h4>Todos direitos reservados</h4>
+        <p>Visiste Nossas Redes:</p>
+   </div>
+
+  <a href="https://www.instagram.com/instituto_equilibriumcariri/?igsh=MWtrYTk3Y2FudDFtag%3D%3D#"><img src="../assets/instagram.png" class="instagram"></a>
+ 
+  <a href="https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0"><img src="../assets/zap.png" class="zap"></a>
+    
+
+    
+    
+ 
+  
+
+     </div>
+        
+
+    <script>
+    document.getElementById("formAgendamento").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Captura os dados
+      const nome = document.getElementById("nome").value;
+      const data = document.getElementById("data").value;
+      const hora = document.getElementById("hora").value;
+      const especialidade = document.getElementById("especialidade").value;
+
+      // Salva no localStorage
+      localStorage.setItem("agendamento", JSON.stringify({ nome, data, hora, especialidade }));
+
+      // Redireciona
+      window.location.href = "consultas.html";
+    });
+  </script>
+</body>
+</html>

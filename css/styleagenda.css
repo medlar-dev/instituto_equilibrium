@@ -1,0 +1,426 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* Topo fixo */
+.top {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+  box-shadow: 0 4px 8px rgba(16, 201, 93, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.top img {
+  position: sticky;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 6px rgba(16, 201, 93, 0.5);
+  z-index: 1000;
+ 
+}
+
+#menu-top ul {
+  position: fixed;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: -50%;
+ z-index: 1000;
+  overflow: visible;
+  color: rgb(16, 201, 93);
+
+}
+
+li{
+  flex-direction: column;
+}
+
+#menu-top li a {
+  text-decoration: none;
+  color: rgb(77, 130, 66);
+  font-weight: bold;
+  font-size: 1.1rem;
+
+}
+
+#menu-top li a:hover {
+  color: rgb(16, 201, 93);
+}
+
+
+/* Principal */
+#principal {
+  width: 100%;
+}
+
+.img-principal {
+  width: 200%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+}
+
+/* Botão de agendamento */
+#butao-agenda {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.btn-agendar {
+  background: rgb(16, 201, 93);
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-agendar:hover {
+  background: rgb(106, 242, 163);
+}
+
+/* Caixa usuário */
+#caixa-user {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+  z-index: 1;
+
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.usuario-icon {/*manipula imagem do Dr com velhinho*/
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 6px rgba(16, 201, 93, 0.5);
+  margin-left: 20%;
+  margin-top: 10%;
+  z-index: 2;
+}
+
+#caixa-user h1 {
+  font-size: 1.8rem;
+  color: rgb(42, 148, 21);
+}
+
+#caixa-user p {
+  margin-top: 15px;
+  text-align: justify;
+  font-size: 1rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+opacity: 60%;
+}
+
+/* Rodapé */
+#roda-pe {
+  background: #fff;
+  padding: 20px 5%;
+  margin-top: 30%;
+  box-shadow: 0px -4px 8px rgba(16, 201, 93, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zap {
+width: 1.5%;
+
+
+
+}
+.instagram {
+width: 1.5%;
+margin-left: 87%;
+
+
+
+}
+
+.rodape-texto {
+  flex: 1;
+}
+
+.rodape-texto h4 {
+  color: rgb(42, 148, 21);
+}
+
+.rodape-texto p {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: rgb(42, 148, 21);
+}
+
+.rodape-redes {
+  display: flex;
+  gap: 15px;
+}
+
+.rodape-redes img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.rodape-redes img:hover {
+  transform: scale(1.1);
+}
+
+#container{
+  max-width: 1412px; /* Ou outra largura desejada */
+  margin: 0 auto;   /* Centraliza o container */
+  width: 100%;    
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffff;
+  padding: .5rem;
+
+
+
+}
+.navbar ul{
+  width: 380px;
+  margin-left: 125%;
+  background-color: #ffff;
+  opacity: 90%;
+  border: 30px;
+
+ 
+}
+
+.navbar ul li a{
+ text-decoration: none;
+ color: green;
+ overflow: hidden;
+ 
+ 
+}
+
+
+.navbar ul li {
+ overflow: hidden;
+
+ 
+}
+
+.hamburger {
+  display: none; /* Escondido em telas grandes */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Lógica do Checkbox e Esconder o Menu em Telas Grandes */
+#menu-toggle {
+  display: none; /* O checkbox fica oculto */
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) { /* Defina o breakpoint que desejar */
+  .hamburger {
+    display: flex; /* Exibe o hambúrguer em telas menores */
+    background-color: green;
+    margin-left: 320px;
+  }
+
+
+
+  .nav-links {
+    display: none; /* Oculta o menu padrão em telas pequenas */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* O checkbox mostra o menu */
+  #menu-toggle:checked ~ .nav-links {
+    display: flex; /* Exibe o menu quando o checkbox está marcado */
+  }
+
+  /* Animação ao abrir o menu (opcional) */
+  #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+  #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+}
+
+/* ==================== Responsividade ==================== */
+@media (max-width: 1024px) {
+ 
+    .navbar ul{
+   width: 100%;
+   margin-left: 120%;
+   text-decoration: none;
+    gap: -20px;
+    font-size: 1rem;
+    z-index: 1000;
+    overflow: visible;
+ 
+
+}
+
+  .navbar ul li{
+  text-decoration: none;
+   margin-left: -30%;
+
+
+ 
+
+}
+
+}
+  .navbar ul li a{
+ gap: -20px;
+
+ 
+
+}
+
+#ico .zap {
+width: 2%;
+margin-left: 88%;
+}
+
+#ico .instagram {
+width: 2%;
+margin-left: 90%;
+margin-top: -2.5%;
+}
+
+  .top img {
+  position: fixed;
+  height: 60px;
+  
+  }
+
+  #caixa-user h1 {
+    font-size: 1.5rem;
+  }
+
+
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+    .top img {
+  position: fixed;
+  height: 60px;
+
+  }
+
+  #menu-top ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  li{
+    display: flex;
+  }
+
+  .user-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .usuario-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  #caixa-user h1 {
+    font-size: 1.3rem;
+  }
+
+  #caixa-user p {
+    font-size: 0.95rem;
+  }
+
+  .rodape-texto, .rodape-redes {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top img {
+    height: 50px;
+  }
+
+  .btn-agendar {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  #caixa-user {
+    padding: 15px;
+  }
+
+  #caixa-user h1 {
+    font-size: 1.1rem;
+  }
+
+  #caixa-user p {
+    font-size: 0.9rem;
+  }
+}

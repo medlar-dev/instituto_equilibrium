@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* ======== TOPO ======== */
+.top {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  box-shadow: 0 4px 8px rgba(16, 201, 93, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.top img {
+  height: 90px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 6px rgba(16, 201, 93, 0.5);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: rgb(42, 148, 21);
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: rgb(16, 201, 93);
+}
+
+  .nav-links {
+    display: none;
+   left: 40%;
+   font-size: 20px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    padding: 15px;
+   
+ 
+  }
+
+  .fa-copyright{
+    font-size: 20px;
+    align-items: flex;
+   
+  
+  }
+
+  .direito {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: green;
+  }
+
+    .direito h1 {
+   font-size: 20px;
+  }
+
+/* ======== HAMBURGUER MENU ======== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(42, 148, 21);
+  margin: 4px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/* ======== CONTEÚDO ======== */
+.img-principal {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+}
+
+#butao-agenda {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.btn-agendar {
+  background: rgb(16, 201, 93);
+  color: #fff;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-agendar:hover {
+  background: rgb(106, 242, 163);
+}
+
+/* ======== CAIXA USER ======== */
+#caixa-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 1350px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+}
+
+#missao-atn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 1350px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+}
+
+
+#missao-atn h1 {
+ color: rgb(42, 148, 21);
+ 
+}
+
+.usuario-icon {
+  width: 220px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px rgba(16, 201, 93, 0.5);
+}
+
+#caixa-user h1 {
+  color: rgb(42, 148, 21);
+  margin-bottom: -10px;
+  
+  
+}
+
+#caixa-user p {
+  text-align: justify;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+#missao-atn p {
+  text-align: justify;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+
+
+
+/* ======== RODAPÉ ======== */
+#roda-pe {
+  background: #fff;
+  box-shadow: 0px -4px 8px rgba(16, 201, 93, 0.5);
+  padding: 20px 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#ico {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: green;
+}
+
+#ico img {
+  width: 25px;
+  transition: transform 0.2s;
+  
+}
+
+#ico img:hover {
+  transform: scale(1.1);
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 1024px) {
+  .top {
+    padding: 10px 20px;
+  }
+
+  #caixa-user {
+    flex-direction: column;
+    text-align: center;
+  }
+
+   #missao-atn {
+    flex-direction: column;
+    text-align: center;
+  }
+
+
+  .usuario-icon {
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  }
+
+  #menu-toggle:checked + .hamburger + .nav-links {
+    display: none;
+  }
+
+  #caixa-user {
+    flex-direction: column;
+  }
+  
+  #missao-atn {
+    flex-direction: column;
+  }
+
+  #ico {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-agendar {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .usuario-icon {
+    width: 150px;
+  }
+
+  #caixa-user p {
+    font-size: 0.9rem;
+  }
+  
+  #missao-atn p {
+    font-size: 0.9rem;
+  }
+
+  #ico img {
+    width: 22px;
+  }
+}

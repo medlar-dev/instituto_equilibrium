@@ -1,0 +1,782 @@
+
+ .container {
+    background-color: #fff;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-height: 500px;
+    max-width: 400px;
+}
+
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .card-title {
+            color: #01497c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e6f2ff;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c7da0;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: #2c7da0;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(44, 125, 160, 0.2);
+        }
+        
+        .time-inputs {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .time-inputs input {
+            text-align: center;
+        }
+        
+        .btn {
+            background-color: #2c7da0;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #01497c;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .appointment-list {
+            list-style: none;
+        }
+        
+        .appointment-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .appointment-item:last-child {
+            border-bottom: none;
+        }
+        
+        .appointment-info {
+            flex: 1;
+        }
+        
+        .appointment-info h3 {
+            color: #01497c;
+            margin-bottom: 5px;
+        }
+        
+        .appointment-info p {
+            margin-bottom: 3px;
+            color: #555;
+        }
+        
+        .no-appointments {
+            text-align: center;
+            padding: 30px;
+            color: #6c757d;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #6c757d;
+            border-top: 1px solid #ddd;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .actions {
+                flex-direction: column;
+            }
+            
+            .time-inputs {
+                flex-direction: column;
+            }
+        }
+
+
+body {
+    font-family: Arial, sans-serif;
+     background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    src: url(../assets/idosa-equilibrio.jpg);
+}
+
+
+
+#consultas-page{
+    position: absolute;
+    display: inline-block;
+    margin-left: 80%;
+
+
+}
+
+
+.top{
+    
+    background-color: #ffff;
+    position: fixed;
+    width:100%;
+    top: 0;
+    margin-left: -0.5%;
+    height: 15%;
+    box-shadow: 0px 4px 8px 0px  rgb(16, 201, 93);
+    z-index: 3;
+}
+
+.top img{
+    position: absolute;
+    display: inline-block;
+    width: 20%;
+    height: 220%;
+    margin-top: 3%;
+    margin-left: .5%;
+    border:10px;
+    border-radius: 50%;
+    box-shadow: 4px 0px 8px 0px rgb(16, 201, 93);
+    cursor: pointer;
+    z-index: 3;
+
+}
+
+#menu-top ul{
+    position: fixed;
+    display: flex;
+    margin-left:-10%;
+    color: black;
+    margin-top: -23%;
+    font-size: 150%;
+    list-style: none;
+    padding: 40px 60px;
+    gap: 80px;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 4;
+     
+}
+
+#menu-top li{
+    color: rgb(42, 148, 21);
+    list-style: none;
+    font-weight: bold;
+    text-transform: var(#37ebaf);
+    text-decoration: none;
+    
+
+}
+
+li{
+    text-decoration: none;
+}
+
+#atendente .atender{
+    position: absolute;
+    display: inline-block;
+    margin-left: -40%;
+    margin-top: -10%;
+      box-shadow: 4px 0px 20px 0px rgb(16, 201, 93);
+
+}
+
+#container {
+    position: absolute;
+    display: inline-block;
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 5%;
+    height: 58%;
+    margin-left: 25%;
+    border-radius: 10px;
+    box-shadow: 4px 0px 20px 0px rgb(16, 201, 93);
+    width: 30%;
+    max-width: 700px;
+    z-index: 2;
+    
+}
+
+#agenda-img .vovo-img{
+    position: absolute;
+    display: inline-block;
+    width: 70%;
+    margin-left: -40%;
+    box-shadow: 2px 0px 4px 2px rgb(16, 201, 93);
+    border: 10px;
+    border-radius: 10px 0px 10px 0px;
+    
+
+    
+
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Para incluir padding e borda na largura total */
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(16, 201, 93);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(5, 89, 41);
+}
+
+#appointment-form .agenda{/*botao visualizar agenda*/
+    background-color: rgb(10, 136, 239);
+    margin-top: 3%;
+
+
+}
+
+
+#appointment-list-container {
+    position: absolute;
+    display: inline-block;
+    margin-top: 5.7%;
+    border-top: 1px solid #eee;
+    width: 70%;
+    height: 50%;
+    padding-top: 20px;
+    margin-left: -2%;
+     box-shadow: 4px 0px 8px 0px rgb(16, 201, 93);
+     z-index: 1;
+}
+
+#appointment-list-container p {
+    position: absolute;
+    display: inline-block;
+    margin-left: 40.5%;
+    margin-top: -2%;
+ 
+}
+
+#btn-volta-registra .voltar{
+    width: 30%;
+    margin-top: 26%;
+    margin-left: 68%;
+}
+
+
+#appointment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.appointment-item {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appointment-details {
+    flex-grow: 1;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    width: 30%;
+    margin-top: 20%;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.no-appointments-message {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+
+#roda-pe{
+    position: absolute;
+    display: inline-block;
+    background-color: #ffff;
+    width: 100%;
+    height: 10%;
+    margin-left: -0.5%;
+    margin-top: 45.7%;
+    box-shadow: 4px 0px 8px 0px rgb(16, 201, 93);
+}
+
+#roda-pe .instagram{
+    position: absolute;
+    display: inline-block;
+    margin-left: 87%;
+    width: 2%;
+    margin-top:  -3%;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+.fa-copyright{
+    position: absolute;
+    display: block;
+    color: black;
+    margin-left: .7%;
+    margin-top:  1.9%;
+    font-size: 150%;
+    font-weight: bold;
+
+    
+}
+
+#roda-pe .zap{
+    position: absolute;
+    display:inline-block;
+    color: black;
+    width: 2%;
+    margin-left: 90%;
+    margin-top:  -3%;
+    font-size: 150%;
+
+    cursor: pointer;
+    
+}
+
+#roda-pe h4{
+    color: rgb(42, 148, 21);
+    margin-left: 2.5%;
+    margin-top: 1.8%;
+    font-size: 130%;
+}
+
+#roda-pe p{
+    position: absolute;
+    display: block;
+    color: rgb(42, 148, 21);
+    margin-left: 83%;
+    margin-top:  -4.5%;
+    font-size: 150%;
+    cursor: pointer;
+    
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+     background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    src: url(../assets/idosa-equilibrio.jpg);
+}
+
+
+
+
+
+
+.top{
+    
+    background-color: #ffff;
+    position: fixed;
+    width:100%;
+    top: 0;
+    margin-left: -0.5%;
+    height: 15%;
+    box-shadow: 0px 4px 8px 0px  rgb(16, 201, 93);
+    z-index: 3;
+}
+
+.top img{
+    position: absolute;
+    display: inline-block;
+    width: 20%;
+    height: 220%;
+    margin-top: 3%;
+    margin-left: .5%;
+    border:10px;
+    border-radius: 50%;
+    box-shadow: 4px 0px 8px 0px rgb(16, 201, 93);
+    cursor: pointer;
+    z-index: 3;
+
+}
+
+#menu-top ul{
+    position: fixed;
+    display: flex;
+    margin-left:-10%;
+    color: black;
+    margin-top: -23%;
+    font-size: 150%;
+    list-style: none;
+    padding: 40px 60px;
+    gap: 80px;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 4;
+     
+}
+
+#menu-top li{
+    color: rgb(42, 148, 21);
+    list-style: none;
+    font-weight: bold;
+    text-transform: var(#37ebaf);
+    text-decoration: none;
+    
+
+}
+
+li{
+    text-decoration: none;
+}
+
+#atendente .atender{
+    position: absolute;
+    display: inline-block;
+    margin-left: -40%;
+    margin-top: -10%;
+      box-shadow: 4px 0px 20px 0px rgb(16, 201, 93);
+
+}
+
+.container {
+    position: absolute;
+    display: inline-block;
+    background-color: #fff;
+    padding: 30px;
+    margin-top: -0%;
+    height: 88%;
+    margin-left: 25%;
+    border-radius: 10px;
+    box-shadow: 4px 0px 20px 0px rgb(16, 201, 93);
+    width: 100%;
+    max-width: 700px;
+
+    z-index: 2;
+    
+}
+
+#agenda-img .vovo-img{
+    position: absolute;
+    display: inline-block;
+    width: 70%;
+    margin-left: -40%;
+    box-shadow: 2px 0px 4px 2px rgb(16, 201, 93);
+    border: 10px;
+    border-radius: 10px 0px 10px 0px;
+    
+
+    
+
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Para incluir padding e borda na largura total */
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(16, 201, 93);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(5, 89, 41);
+}
+
+#appointment-form .agenda{/*botao visualizar agenda*/
+    background-color: rgb(10, 136, 239);
+    margin-top: 3%;
+
+
+}
+
+
+#appointment-list-container {
+    position: absolute;
+    display: inline-block;
+    margin-top: 5.7%;
+    border-top: 1px solid #eee;
+    width: 70%;
+    height: 50%;
+    padding-top: 20px;
+    margin-left: -2%;
+     box-shadow: 4px 0px 8px 0px rgb(16, 201, 93);
+     z-index: 1;
+}
+
+#appointment-list-container p {
+    position: absolute;
+    display: inline-block;
+    margin-left: 40.5%;
+    margin-top: -2%;
+ 
+}
+
+#btn-volta-registra .voltar{
+    width: 30%;
+    margin-top: 26%;
+    margin-left: 68%;
+}
+
+
+#appointment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.appointment-item {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appointment-details {
+    flex-grow: 1;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    width: 30%;
+    margin-top: 20%;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.no-appointments-message {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+
+.fa-copyright{
+    position: absolute;
+    display: block;
+    color: black;
+    margin-left: .7%;
+    margin-top:  1.9%;
+    font-size: 150%;
+    font-weight: bold;
+
+} 
+
+#roda-pe{
+    position: absolute;
+    display: inline-block;
+    background-color: #ffff;
+    width: 100%;
+    height: 10%;
+    margin-left: -0.5%;
+    margin-top: 125.7%;
+    box-shadow: 4px 0px 8px 0px rgb(16, 201, 93);
+}
+
+#roda-pe .instagram{
+    position: absolute;
+    display: inline-block;
+    margin-left: 87%;
+    width: 2%;
+    margin-top:  -3%;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+
+
+#roda-pe .zap{
+    position: absolute;
+    display:inline-block;
+    color: black;
+    width: 2%;
+    margin-left: 90%;
+    margin-top:  -3%;
+    font-size: 150%;
+    cursor: pointer;
+    
+}
+
+
+#roda-pe h4{
+    color: rgb(42, 148, 21);
+}
+
+#roda-pe p{
+    position: absolute;
+    display: block;
+    color: rgb(42, 148, 21);
+    margin-left: 83%;
+    margin-top:  -4.8%;
+    font-size: 150%;
+    cursor: pointer;
+    
+}
+#principal{
+    position: absolute;
+    display: inline-block;
+    margin-left: -40%;
+     box-shadow: 4px 0px 20px 0px rgb(16, 201, 93);
+}
