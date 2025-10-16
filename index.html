@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/css/styles.css">
   <title>instituto equlibrio cariri</title>
   <style>
-* {
+      * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -83,7 +83,7 @@ body {
   .direito {
     display: flex;
     align-items: center;
-    gap: -3px;
+    gap: 4px;
     color: green;
   }
 
@@ -144,12 +144,30 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  max-width: 1300px;
+  max-width: 1350px;
   margin: 40px auto;
   padding: 20px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+}
+
+#missao-atn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 1350px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+}
+
+
+#missao-atn h1 {
+ color: rgb(42, 148, 21);
+ 
 }
 
 .usuario-icon {
@@ -171,6 +189,13 @@ body {
   font-size: 1rem;
   opacity: 0.9;
 }
+
+#missao-atn p {
+  text-align: justify;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
 
 
 
@@ -195,6 +220,7 @@ body {
 #ico img {
   width: 25px;
   transition: transform 0.2s;
+  
 }
 
 #ico img:hover {
@@ -211,6 +237,12 @@ body {
     flex-direction: column;
     text-align: center;
   }
+
+   #missao-atn {
+    flex-direction: column;
+    text-align: center;
+  }
+
 
   .usuario-icon {
     width: 180px;
@@ -241,6 +273,10 @@ body {
   #caixa-user {
     flex-direction: column;
   }
+  
+  #missao-atn {
+    flex-direction: column;
+  }
 
   #ico {
     flex-direction: column;
@@ -262,32 +298,17 @@ body {
   #caixa-user p {
     font-size: 0.9rem;
   }
+  
+  #missao-atn p {
+    font-size: 0.9rem;
+  }
 
   #ico img {
     width: 22px;
   }
 }
-/* Mobile First */
-.container {
-  width: 100%;
-  padding: 10px;
-}
 
-/* Tablets */
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-    margin: 0 auto;
-  }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .container {
-    width: 980px;
-  }
-}
-</style>
+    </style>
 
 </head>
 <body>
