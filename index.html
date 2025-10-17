@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
  
   <title>instituto equlibrio cariri</title>
-  <style>
+   <style>
         * {
             margin: 0;
             padding: 0;
@@ -45,8 +45,8 @@
             align-items: end;
          margin-left: auto;
          margin-right: auto;
-  
-         
+        
+ 
           
         }
 
@@ -54,22 +54,22 @@
             list-style: none;
             display: flex;
             gap: 1.5rem;
-            left: -80px;
-            left: 25px;
+            left: 0px;
+            
            
              
           
              
         }
-
+/*aqui manupula a palavra dentro do botao hambuguer*/
         .nav-links a {
-         
+            display: flex;
             text-decoration: none;
             color: rgb(42, 148, 21);
             font-weight: bold;
             transition: color 0.3s;
-      
-            
+            margin-left: 35px;
+        
             
         }
 
@@ -88,6 +88,8 @@
             cursor: pointer;
             padding: 5px;
               padding-left: 400%;
+              
+            
             
         }
 
@@ -98,11 +100,13 @@
             margin: 3px 0;
             left: 30%;
             transition: all 0.3s ease-in-out;
+             
           
         }
 
         #menu-toggle {
             display: none;
+            
            
         }
 
@@ -266,29 +270,33 @@
             display: flex;
             position:relative ;
             align-items: end;
+            
         
          
         }
         
+        
 
-            /* MENU QUANDO CHECKED - CORREÇÃO PRINCIPAL */
+/*aqui manupula Menu hamburguer quando clica nele aparece */
             #menu-toggle:checked ~ .nav-links {
                 display: flex;
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
-                right: 0;
+                right: -0%;
+               margin-left: 50px;
                 background: #fff;
                 padding: 20px;
                 border-radius: 8px;
                 box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
                 gap: 15px;
                 z-index: 1001;
-                min-width: 200px;
+                min-width: 150px;
             }
 
             .nav-links li {
                 padding: 8px 0;
+                color: aqua;
             }
 
             #caixa-user,
@@ -368,6 +376,8 @@
             .img-principal {
                 max-height: 300px;
             }
+
+            
         }
 
 
@@ -410,6 +420,7 @@
                 font-size: 0.85rem;
                 padding: 10px 20px;
             }
+            
         }
     </style>
 </head>
