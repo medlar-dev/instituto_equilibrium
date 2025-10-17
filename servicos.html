@@ -3,438 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="/css/stylesservicos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <title>instituto equlibrio cariri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>instituto equilibrio cariri</title>
     <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #fff;
-  color: #222;
-  line-height: 1.5;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff;
+            color: #222;
+            line-height: 1.5;
+        }
 
-/* ======== TOPO ======== */
-.top {
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 30px;
-  box-shadow: 0 4px 8px rgba(16, 201, 93, 0.5);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+        /* ======== TOPO ======== */
+        .top {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(16, 201, 93, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.top img {
-  height: 90px;
-  border-radius: 50%;
-  box-shadow: 2px 2px 6px rgba(16, 201, 93, 0.5);
-}
+        .top img {
+            height: 90px;
+            border-radius: 50%;
+            box-shadow: 2px 2px 6px rgba(16, 201, 93, 0.5);
+        }
 
-.navbar {
-  display: flex;
-  align-items: center;
-}
+        /* NAVBAR CORRIGIDA */
+        .navbar {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
 
-.navbar a {
-  text-decoration: none;
-  color: rgb(42, 148, 21);
-  font-weight: bold;
-  transition: color 0.3s;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: rgb(42, 148, 21);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
 
-.navbar a:hover {
-  color: rgb(16, 201, 93);
-}
+        .nav-links a:hover {
+            color: rgb(16, 201, 93);
+        }
 
-  .nav-links {
-    display: none;
-   left: 40%;
-   font-size: 20px;
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    padding: 15px;
-   
- 
-  }
+        /* HAMBURGUER MENU - CORRIGIDO */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
 
-  .fa-copyright{
-    font-size: 20px;
-    align-items: flex;
-   
-  
-  }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: rgb(42, 148, 21);
+            margin: 3px 0;
+            transition: all 0.3s ease-in-out;
+        }
 
-  .direito {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: green;
-  }
+        #menu-toggle {
+            display: none;
+        }
 
-    .direito h1 {
-   font-size: 20px;
-  }
+        .direito {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: green;
+        }
 
-/* ======== HAMBURGUER MENU ======== */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
+        .direito h1 {
+            font-size: 20px;
+        }
 
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background-color: rgb(42, 148, 21);
-  margin: 4px 0;
-  transition: all 0.3s ease-in-out;
-}
+        .fa-copyright {
+            font-size: 20px;
+        }
 
-#menu-toggle {
-  display: none;
-}
+        /* ======== CONTEÚDO ======== */
+        .img-principal {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+        }
 
-/* ======== CONTEÚDO ======== */
-.img-principal {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
-}
+        #butao-agenda {
+            text-align: center;
+            margin: 40px 0;
+        }
 
-#butao-agenda {
-  text-align: center;
-  margin: 40px 0;
-}
+        .btn-agendar {
+            background: rgb(16, 201, 93);
+            color: #fff;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
 
-.btn-agendar {
-  background: rgb(16, 201, 93);
-  color: #fff;
-  padding: 14px 30px;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+        .btn-agendar:hover {
+            background: rgb(106, 242, 163);
+        }
 
-.btn-agendar:hover {
-  background: rgb(106, 242, 163);
-}
+        /* ======== CAIXAS DE CONTEÚDO ======== */
+        #caixa-user {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 1350px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+        }
 
-/* ======== CAIXA USER ======== */
-#caixa-user {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: 1350px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
-}
+        #missao-atn {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 1350px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
+        }
 
-#missao-atn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: 1350px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0px 4px 8px rgba(16, 201, 93, 0.5);
-}
+        #missao-atn img {
+            width: 220px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 2px 4px 6px rgba(16, 201, 93, 0.5);
+        }
 
+        #missao-atn h1 {
+            color: rgb(42, 148, 21);
+        }
 
-#missao-atn h1 {
- color: rgb(42, 148, 21);
- 
-}
+        #caixa-user h1 {
+            color: rgb(42, 148, 21);
+            margin-bottom: 15px;
+        }
 
-.usuario-icon {
-  width: 220px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 2px 4px 6px rgba(16, 201, 93, 0.5);
-}
+        #caixa-user p,
+        #missao-atn p {
+            text-align: justify;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
 
-#caixa-user h1 {
-  color: rgb(42, 148, 21);
-  margin-bottom: -10px;
-  
-  
-}
+        /* ======== RODAPÉ ======== */
+        #roda-pe {
+            background: #fff;
+            box-shadow: 0px -4px 8px rgba(16, 201, 93, 0.5);
+            padding: 25px 5%;
+            margin-top: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-#caixa-user p {
-  text-align: justify;
-  font-size: 1rem;
-  opacity: 0.9;
-}
+        #ico {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: green;
+        }
 
-#missao-atn p {
-  text-align: justify;
-  font-size: 1rem;
-  opacity: 0.9;
-}
+        #ico img {
+            width: 25px;
+            transition: transform 0.2s;
+        }
 
+        #ico img:hover {
+            transform: scale(1.1);
+        }
 
+        /* ======== RESPONSIVIDADE CORRIGIDA ======== */
+        @media (max-width: 1024px) {
+            .top {
+                padding: 10px 20px;
+            }
 
+            #caixa-user,
+            #missao-atn {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+                margin: 30px 20px;
+                padding: 25px;
+            }
+        }
 
-/* ======== RODAPÉ ======== */
-#roda-pe {
-  background: #fff;
-  box-shadow: 0px -4px 8px rgba(16, 201, 93, 0.5);
-  padding: 25px 3%;
-  margin-top: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
+        @media (max-width: 768px) {
+            /* HAMBURGUER VISÍVEL NO MOBILE */
+            .hamburger {
+                display: flex;
+            }
 
-#ico {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: green;
-}
+            /* MENU NORMAL ESCONDIDO NO MOBILE */
+            .nav-links {
+                display: none;
+            }
 
-#ico img {
-  width: 25px;
-  transition: transform 0.2s;
-  
-}
+            /* MENU QUANDO CHECKED - CORREÇÃO PRINCIPAL */
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+                gap: 15px;
+                z-index: 1001;
+                min-width: 200px;
+            }
 
-#ico img:hover {
-  transform: scale(1.1);
-}
+            .nav-links li {
+                padding: 8px 0;
+            }
 
-/* ======== RESPONSIVIDADE ======== */
-@media (max-width: 1024px) {
-  .top {
-    padding: 10px 20px;
-  }
+            #caixa-user,
+            #missao-atn {
+                flex-direction: column;
+                margin: 20px 15px;
+                padding: 20px;
+                gap: 20px;
+            }
 
-  #caixa-user {
-    flex-direction: column;
-    text-align: center;
-  }
+            #missao-atn img {
+                width: 180px;
+            }
 
-   #missao-atn {
-    flex-direction: column;
-    text-align: center;
-  }
+            #roda-pe {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                margin-top: 60px;
+                padding: 20px;
+            }
 
+            .direito {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
 
-  .usuario-icon {
-    width: 180px;
-  }
-}
+        @media (max-width: 480px) {
+            .top {
+                padding: 10px 15px;
+            }
 
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
+            .top img {
+                height: 70px;
+            }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-  }
+            .btn-agendar {
+                width: 90%;
+                max-width: 280px;
+                font-size: 0.9rem;
+                padding: 12px 25px;
+            }
 
-  #menu-toggle:checked + .hamburger + .nav-links {
-    display: none;
-  }
+            #caixa-user h1,
+            #missao-atn h1 {
+                font-size: 1.3rem;
+            }
 
-  #caixa-user {
-    flex-direction: column;
-  }
-  
-  #missao-atn {
-    flex-direction: column;
-  }
+            #caixa-user p,
+            #missao-atn p {
+                font-size: 0.9rem;
+                text-align: left;
+            }
 
-  #ico {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-  }
-}
+            #ico {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
 
-@media (max-width: 480px) {
-  .btn-agendar {
-    width: 90%;
-    font-size: 0.9rem;
-  }
+            #ico img {
+                width: 22px;
+            }
 
-  .usuario-icon {
-    width: 150px;
-  }
+            .img-principal {
+                max-height: 300px;
+            }
+        }
 
-  #caixa-user p {
-    font-size: 0.9rem;
-  }
-  
-  #missao-atn p {
-    font-size: 0.9rem;
-  }
+        @media (max-width: 360px) {
+            .top {
+                padding: 8px 10px;
+            }
 
-  #ico img {
-    width: 22px;
-  }
-}
+            .top img {
+                height: 60px;
+            }
 
+            #caixa-user,
+            #missao-atn {
+                margin: 15px 10px;
+                padding: 15px;
+            }
+
+            .btn-agendar {
+                font-size: 0.85rem;
+                padding: 10px 20px;
+            }
+        }
     </style>
-    </head>
+</head>
 <body>
     <div id="container">
-    <div class="top">
-       <a href="https://medlar-dev.github.io/instituto_equilibrium"> <img src="assets/logo-ofocial.jpg" alt="" ></a>
-    <div class="navbar">
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
+        <div class="top">
+            <a href="https://medlar-dev.github.io/instituto_equilibrium">
+                <img src="assets/logo-ofocial.jpg" alt="Logo Instituto Equilibrium">
+            </a>
 
-  <ul class="nav-links">
-    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/">Home</a></li>
-    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/quemSomos.html">Sobre</a></li>
-    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/servicos.html">Serviços</a></li>
-     <!--<li><a href="#">Contato</a></li>-->
-  </ul>
-</div>
-    <!--<div>
-        <ul>
-            <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/InstitutoEquilibrioCariri.html'">Home</li>
-              <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/quemSomos.html'">Quem somos</li>
-                 <li type="button" onclick="window.location.href='http://127.0.0.1:5500/public/servicos.html'">Serviços</li>
-        </ul>
-              
-            </ul>
-
-            
-    </div>-->
-</div>
+            <div class="navbar">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                
+                <ul class="nav-links">
+                    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/">Home</a></li>
+                    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/quemSomos.html">Sobre</a></li>
+                    <li><a href="https://medlar-dev.github.io/instituto_equilibrium/servicos.html">Serviços</a></li>
+                </ul>
+            </div>
+        </div>
 
         <div id="principal">
-        <img src="assets/Exercicios-que-podem-ajudar-a-evitar-as-quedas-em-idosos--1060x596.png" class="img-principal">
-        
-
-    </div>
-
-
-    
-   <!-- <div id="informativo">
-       <img  class="banner"  src="../assets/banner-med-teste.jpg" alt="">
-        <img  class="icon-avancar" src="../assets/avançar.png" alt="">
-    </div>
-
-
-     <div id="informativo2">
-        <img  class="icon-voltar" src="../assets/voltar.png" alt="">
-        <img  class="icon-avancar" src="../assets/avançar.png" alt="">
-    </div>-->
-
-     <div id="butao-agenda">   
-                <button type="button" onclick="window.location.href='https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0'" class="btn-agendar">Agende ja sua Consulta</button>
-            </div>
-    <div id="caixa-user">
-        <h1>Nosso Serviço:</h1>
-        <p>
-     Instituto Equilibrium Cariri é especializado no cuidado de pessoas idosas, 
-       focando na prevenção, diagnóstico e tratamento de doenças e 
-       condições comuns na terceira idade. Nós  cuidamos no tratamentos de doenças crónicas
-       como pressão alta e diabetes, problemas cognitivos como demência, 
-       e aspectos do envelhecimento como perda de memória, mobilidade e 
-       qualidade de vida, promovendo um envelhecimento saudável e bem-estar. .   
-            </p>
-    </div>
-
-
-
-    <div id="missao-atn">
-        <img src="assets/2idosos.jpg" alt="">
-         <h1>Terapias Geriatricas:</h1>
-         <p>
-           Nosso Instituto Equilibrium Cariri, temos como focos terapêuticos direcionadas à
-           população idosa, com o objetivo de melhorar a qualidade de vida, 
-           a autonomia e o bem-estar físico e mental. Inclui a Fisioterapia 
-           Geriátrica para manter ou recuperar a função motora e o equilíbrio,
-           a Psicoterapia Geriátrica (ou Psicogerontologia) para lidar com 
-           desafios emocionais e cognitivos, e a Terapia Ocupacional que foca 
-           nas atividades do dia a dia, entre outras especialidades que visam 
-           um envelhecimento saudável e ativo.   
-         </p>
-
-    </div>
-
-
-
-
-    
-<div id="roda-pe">
-  
-    <div class="direito">
-<p>Made by <h1>Instituto Equilibrium Cariri</h1> · All rights reserved.</p>
- <i class="fa-regular fa-copyright"></i>
-       </div>  
-          
-
-
-    <div id="ico">
-        <p2>Visite Nossas Redes:</p2>
-        <a href="https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0"><img src="assets/zap.png" class="zap" alt="zap-instituto"></a>
-     <a href="https://www.instagram.com/instituto_equilibriumcariri/?igsh=MWtrYTk3Y2FudDFtag%3D%3D#"><img src="assets/instagram.png" class="instagram" alt="insta-instituto"></a>
+            <img src="assets/logo-principal.jpg" class="img-principal" alt="Exercícios para idosos">
         </div>
-    
 
-    
-       
-    
-     </div>
+        <div id="butao-agenda">   
+            <button type="button" onclick="window.location.href='https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0'" class="btn-agendar">Agende ja sua Consulta</button>
+        </div>
 
-  </div>
-   
-    
- 
-   </head>
+        <div id="caixa-user">
+            <h1>Nosso Serviço:</h1>
+            <p>
+                Instituto Equilibrium Cariri é especializado no cuidado de pessoas idosas, 
+                focando na prevenção, diagnóstico e tratamento de doenças e 
+                condições comuns na terceira idade. Nós cuidamos no tratamentos de doenças crônicas
+                como pressão alta e diabetes, problemas cognitivos como demência, 
+                e aspectos do envelhecimento como perda de memória, mobilidade e 
+                qualidade de vida, promovendo um envelhecimento saudável e bem-estar.   
+            </p>
+        </div>
+
+        <div id="missao-atn">
+            <img src="assets/2idosos.jpg" alt="Terapias Geriátricas">
+            <div>
+                <h1>Terapias Geriátricas:</h1>
+                <p>
+                    Nosso Instituto Equilibrium Cariri tem como foco terapêutico direcionado à
+                    população idosa, com o objetivo de melhorar a qualidade de vida, 
+                    a autonomia e o bem-estar físico e mental. Inclui a Fisioterapia 
+                    Geriátrica para manter ou recuperar a função motora e o equilíbrio,
+                    a Psicoterapia Geriátrica para lidar com desafios emocionais e cognitivos, 
+                    e a Terapia Ocupacional que foca nas atividades do dia a dia, entre outras 
+                    especialidades que visam um envelhecimento saudável e ativo.   
+                </p>
+            </div>
+        </div>
+
+        <div id="roda-pe">
+            <div class="direito">
+                <p>Made by <span style="font-weight: bold;">Instituto Equilibrium Cariri</span> · All rights reserved.</p>
+                <i class="fa-regular fa-copyright"></i>
+            </div>  
+            
+            <div id="ico">
+                <p>Visite Nossas Redes:</p>
+                <a href="https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0">
+                    <img src="assets/zap.png" class="zap" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/instituto_equilibriumcariri/">
+                    <img src="assets/instagram.png" class="instagram" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Remove o script problemático que estava causando issues
+        // O problema de responsividade era principalmente no CSS
+    </script>
 </body>
 </html>
-
-<script>
-function fixZoom() {
-  let zoom = window.devicePixelRatio;
-  document.querySelector('.container').style.transform = `scale(${1 / zoom})`;
-}
-
-window.addEventListener('resize', fixZoom);
-fixZoom();
-
-</script>
