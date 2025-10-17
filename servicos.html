@@ -42,16 +42,20 @@
         .navbar {
             display: flex;
             align-items: center;
-            position: relative;
+         margin-left: auto;
+         margin-right: auto;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
             gap: 1.5rem;
+            
+             
         }
 
         .nav-links a {
+         
             text-decoration: none;
             color: rgb(42, 148, 21);
             font-weight: bold;
@@ -75,6 +79,7 @@
             height: 3px;
             background-color: rgb(42, 148, 21);
             margin: 3px 0;
+            left: 30%;
             transition: all 0.3s ease-in-out;
         }
 
@@ -228,7 +233,15 @@
             /* MENU NORMAL ESCONDIDO NO MOBILE */
             .nav-links {
                 display: none;
+               
             }
+
+               .navbar {
+            display: flex;
+            align-items: end;
+            margin-left: 490pX;
+         
+        }
 
             /* MENU QUANDO CHECKED - CORREÇÃO PRINCIPAL */
             #menu-toggle:checked ~ .nav-links {
